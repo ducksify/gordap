@@ -242,7 +242,7 @@ func (c *Client) queryRDAP(domain, server string) ([]byte, error) {
 		if err != nil {
 			return nil, fmt.Errorf("failed to create request: %w", err)
 		}
-		req.Header.Set("Accept", "application/json")
+		req.Header.Set("Accept", "application/rdap+json;charset=UTF-8")
 		req.Header.Set("Content-Type", "application/json")
 		resp, err := c.httpClient.Do(req)
 		if err != nil {
@@ -269,7 +269,7 @@ func (c *Client) queryRDAP(domain, server string) ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Accept", "application/rdap+json;charset=UTF-8")
 	req.Header.Set("Content-Type", "application/json")
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
